@@ -1,7 +1,12 @@
-// Specifies the version of Solidity, using semantic versioning.
-// Learn more: https://solidity.readthedocs.io/en/v0.5.10/layout-of-source-files.html#pragma
-pragma solidity ^0.5.2;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.6;
 
-contract TestCoin {
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
+contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
+	 constructor (string _name, string _symbol) public ERC721(_name, _symbol) Ownable()
+    {
+    }
 }
