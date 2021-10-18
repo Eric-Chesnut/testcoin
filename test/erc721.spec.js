@@ -24,7 +24,7 @@ contract('Testing ERC721 contract', function(accounts) {
 
     it(' should be able to deploy and mint ERC721 token', async () => {
         token = await TestCoin.new(name, symbol)
-        await token.testClaim(tokenId1, {from: accounts[1]})
+        await token.testClaim(tokenId1, {from: accounts[1], value: 5})
 
         expect(await token.symbol()).to.equal(symbol)
         expect(await token.name()).to.equal(name)
@@ -36,7 +36,7 @@ contract('Testing ERC721 contract', function(accounts) {
     })
 
     it(' should allow creation of multiple unique tokens and manage ownership', async () => {
-        const additionalToken = await token.testClaim(tokenId2,{from: accounts[2]})
+        const additionalToken = await token.testClaim(tokenId2,{from: accounts[2], value: 3})
         expect(Number(await token.totalSupply())).to.equal(2)
 
         //expect(await token.exists(tokenId1)).to.be.true

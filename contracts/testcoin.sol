@@ -12,6 +12,7 @@ contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
 	
 	
 	function testClaim(uint256 tokenId) public payable nonReentrant {
-	_safeMint(_msgSender(), tokenId);
+		require(msg.value > 1);
+		_safeMint(_msgSender(), tokenId);
 	}
 }
