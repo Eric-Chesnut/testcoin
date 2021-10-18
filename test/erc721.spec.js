@@ -36,7 +36,7 @@ contract('Testing ERC721 contract', function(accounts) {
     })
 
     it(' should allow creation of multiple unique tokens and manage ownership', async () => {
-        const additionalToken = await token.testClaim(tokenId2,{from: accounts[2], value: 3})
+        const additionalToken = await token.testClaim(tokenId2,{from: accounts[2], value: 200})
         expect(Number(await token.totalSupply())).to.equal(2)
 
         //expect(await token.exists(tokenId1)).to.be.true
