@@ -21,7 +21,7 @@ contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
 		_safeMint(_msgSender(), tokenId);
 	}
 	
-	function bankCheck() public payable onlyOwner {
+	function withdrawBank() public payable onlyOwner {
 		payable(msg.sender).transfer(bank);
 	}
 }
