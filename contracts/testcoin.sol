@@ -6,10 +6,11 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
-	uint bank = 0;
+	uint bank;
 
 	constructor (string memory _name, string memory _symbol) ERC721(_name, _symbol) Ownable()
     {
+		bank = 0;
     }
 	
 	
@@ -22,6 +23,14 @@ contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
 	}
 	
 	function withdrawBank() public payable onlyOwner {
-		payable(msg.sender).transfer(bank);
+		//payable(msg.sender).transfer(this.balance);
+		bank = 0;
+		//this.withdraw();
+		payable(owner()).transfer(address(this).balance);
+
+	}
+	
+	function balancee() public view returns(uint) {
+		return bank;
 	}
 }

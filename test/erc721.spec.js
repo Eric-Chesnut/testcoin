@@ -11,6 +11,8 @@ contract('Testing ERC721 contract', function(accounts) {
     let token;
     const name = "BlueCat";
     const symbol = "BCat"
+	const num1 = 0;
+	const num2 = 205;
 
     const account1 = accounts[1]
     const tokenId1 = 1111;
@@ -61,4 +63,11 @@ contract('Testing ERC721 contract', function(accounts) {
         await token.safeTransferFrom(account2, account3, tokenId2, {from: accounts[2]})
         expect(await token.ownerOf(tokenId2)).to.equal(account3)
     })
+	
+	it(' should allow the owner to empty the bank', async() => {
+		expect(await token.balance).to.equal(205)
+		await token.withdrawBank({from: accounts[0]})
+		expect(await token.balancee()).to.equal(0)
+
+	})
 })
