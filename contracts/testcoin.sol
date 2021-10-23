@@ -31,6 +31,6 @@ contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
 	}
 	
 	function balancee() public view returns(uint) {
-		return bank;
+		return address(this).balance;
 	}
 }
