@@ -65,7 +65,10 @@ contract('Testing ERC721 contract', function(accounts) {
     })
 	
 	it(' should allow the owner to empty the bank', async() => {
-		expect(await token.balancee()).to.equal(205)
+		//const contractBalance = token.balancee().toString()
+		
+		expect(await token.balancee()).to.equal('cd')
+		//expect(contractBalance).to.equal(205)
 		await token.withdrawBank({from: accounts[0]})
 		expect(await token.balancee()).to.equal(0)
 
