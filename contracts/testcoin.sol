@@ -30,12 +30,41 @@ contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
 
 	}
 	
-	function balancee() public view returns(uint256 name) {
+	function balancee() public view returns(string memory) {
 		uint256 amount = address(this).balance;
-		return amount;
+		
+		return toString(amount);
 	}
 	
 	function random(string memory input) internal pure returns (uint256) {
         return uint256(keccak256(abi.encodePacked(input)));
     }
+	
+	function getrandom(uint256 tokenId, string memory keyPrefix) internal view returns (uint256) {
+        uint256 rand = random(string(abi.encodePacked(keyPrefix, toString(tokenId))));
+		return rand;
+		}
+		
+		
+		//MIT license
+	function toString(uint256 value) internal pure returns (string memory) {
+       
+        if (value == 0) {
+            return "0";
+        }
+        uint256 temp = value;
+        uint256 digits;
+        while (temp != 0) {
+            digits++;
+            temp /= 10;
+        }
+        bytes memory buffer = new bytes(digits);
+        while (value != 0) {
+            digits -= 1;
+            buffer[digits] = bytes1(uint8(48 + uint256(value % 10)));
+            value /= 10;
+        }
+        return string(buffer);
+    }
+	
 }
