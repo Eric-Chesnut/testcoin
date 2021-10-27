@@ -2,3 +2,5 @@
 A basic coin
 
 Experimenting with various blockchain features using a simple coin.
+
+Solidity contract in contracts folder.
