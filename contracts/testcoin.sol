@@ -96,9 +96,9 @@ contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
             bytes(
                 string(
                     abi.encodePacked(
-                        '{"name": "N #',
+                        '{"name": "test ',
                         toString(tokenId),
-                        '", "description": "N is just numbers.", "image": "data:image/svg+xml;base64,',
+                        '", "description": "this is a test coin", "image": "data:image/svg+xml;base64,',
                         Base64.encode(bytes(output)),
                         '"}'
                     )
