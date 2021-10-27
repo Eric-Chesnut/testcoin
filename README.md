@@ -1,4 +1,10 @@
 # testcoin
 A basic coin
 
-Working on this coin to learn solidity and how to develop smart contracts.
+Experimenting with various blockchain features using a simple coin.
+
+Solidity contract in contracts folder.
+
+Test scripts in test folder.
+
+Migrations in migrations folder.
