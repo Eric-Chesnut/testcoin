@@ -1,4 +1,4 @@
 # testcoin
 A basic coin
 
-Working on this coin to learn solidity and how to develop smart contracts.
+Experimenting with various blockchain features using a simple coin.
