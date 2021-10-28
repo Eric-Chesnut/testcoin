@@ -12,7 +12,7 @@ contract('Testing ERC721 contract', function(accounts) {
     const name = "BlueCat";
     const symbol = "BCat"
 	const num1 = 0;
-	const num2 = 205;
+	const num2 = 1000000000000000005;
 
     const account1 = accounts[1]
     const tokenId1 = 1111;
@@ -38,7 +38,7 @@ contract('Testing ERC721 contract', function(accounts) {
     })
 
     it(' should allow creation of multiple unique tokens and manage ownership', async () => {
-        const additionalToken = await token.testClaim(tokenId2,{from: accounts[2], value: 200})
+        const additionalToken = await token.testClaim(tokenId2,{from: accounts[2], value: 1000000000000000000}) //1 eth
         expect(Number(await token.totalSupply())).to.equal(2)
 
         //expect(await token.exists(tokenId1)).to.be.true
@@ -67,7 +67,7 @@ contract('Testing ERC721 contract', function(accounts) {
 	it(' should allow the owner to empty the bank', async() => {
 		//const contractBalance = token.balancee().toString()
 		
-		expect(await token.balancee()).to.equal('205')
+		expect(await token.balancee()).to.equal('1000000000000000005')
 		//expect(contractBalance).to.equal(205)
 		await token.withdrawBank({from: accounts[0]})
 		expect(await token.balancee()).to.equal('0')
