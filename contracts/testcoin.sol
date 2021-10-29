@@ -7,7 +7,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract TestCoin is ERC721Enumerable, ReentrancyGuard, Ownable {
 	
-
+	
+	
 	constructor (string memory _name, string memory _symbol) ERC721(_name, _symbol) Ownable()
     {
 		
